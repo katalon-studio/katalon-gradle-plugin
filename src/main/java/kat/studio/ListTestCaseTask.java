@@ -4,10 +4,9 @@ import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
 import org.gradle.api.tasks.TaskAction;
 
-import java.io.IOException;
 import java.util.List;
 
-public class ScanTask extends DefaultTask {
+public class ListTestCaseTask extends DefaultTask {
 
   private Project project;
 
@@ -18,7 +17,7 @@ public class ScanTask extends DefaultTask {
   @TaskAction
   void scanTestCase() {
     String rootPath = project.getRootDir().getAbsolutePath();
-    TestCaseScanner scanner = new TestCaseScanner();
+    Scanner scanner = new Scanner();
     try {
       List<TestCase> testCases = scanner.scanTestCases(rootPath);
       testCases.forEach(tc -> {
