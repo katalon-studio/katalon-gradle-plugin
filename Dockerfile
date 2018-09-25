@@ -1,4 +1,4 @@
-FROM gradle
+FROM node
 
 RUN useradd jenkins --shell /bin/bash --create-home
 
