@@ -25,6 +25,7 @@ task javadocJar(type: Jar) {
 pluginBundle {
   website = 'https://www.katalon.com/'
   vcsUrl = 'https://github.com/katalon-studio/gradle-plugin'
+  artifactId = 'katalon'
   tags = ['katalon']
 }
 
