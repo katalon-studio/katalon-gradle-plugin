@@ -6,6 +6,7 @@ plugins {
 }
 
 group = 'com.katalon.gradle.plugin'
+artifactId 'katalon'
 version = '0.0.1'
 
 dependencies {
@@ -25,7 +26,6 @@ task javadocJar(type: Jar) {
 pluginBundle {
   website = 'https://www.katalon.com/'
   vcsUrl = 'https://github.com/katalon-studio/gradle-plugin'
-  artifactId = 'katalon'
   tags = ['katalon']
 }
 
