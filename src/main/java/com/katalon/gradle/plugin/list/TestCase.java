@@ -1,4 +1,4 @@
-package com.katalon.gradle.plugin;
+package com.katalon.gradle.plugin.list;
 
 public class TestCase {
 

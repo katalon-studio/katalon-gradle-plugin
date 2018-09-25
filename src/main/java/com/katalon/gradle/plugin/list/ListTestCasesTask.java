@@ -1,4 +1,4 @@
-package com.katalon.gradle.plugin;
+package com.katalon.gradle.plugin.list;
 
 import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
@@ -6,7 +6,8 @@ import org.gradle.api.tasks.TaskAction;
 
 import java.util.List;
 
-public class ListTestSuiteTask extends DefaultTask {
+public class ListTestCasesTask extends DefaultTask {
+
   private Project project;
 
   public void setProject(Project project) {
@@ -14,14 +15,12 @@ public class ListTestSuiteTask extends DefaultTask {
   }
 
   @TaskAction
-  void scanTestSuites() {
+  void scanTestCase() {
     String rootPath = project.getRootDir().getAbsolutePath();
     Scanner scanner = new Scanner();
     try {
-      List<TestSuite> testSuites = scanner.scanTestSuites(rootPath);
-      testSuites.forEach(suite -> {
-        System.out.println(suite.getPath());
-      });
+      List<TestCase> testCases = scanner.scanTestCases(rootPath);
+      testCases.forEach(tc -> System.out.println(tc.getPath()));
     } catch (Exception ex) {
       System.out.println(ex);
     }
