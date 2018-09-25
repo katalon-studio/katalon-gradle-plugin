@@ -1,7 +1,8 @@
 plugins {
-    id 'java-gradle-plugin'
-    id 'maven-publish'
-    id 'idea'
+  id 'java-gradle-plugin'
+  id 'maven-publish'
+  id 'idea'
+  id "com.gradle.plugin-publish" version "0.10.0"
 }
 
 group = 'com.katalon.gradle.plugin'
@@ -21,21 +22,22 @@ task javadocJar(type: Jar) {
   from javadoc.destinationDir
 }
 
+pluginBundle {
+  website = 'https://www.katalon.com/'
+  vcsUrl = 'https://github.com/katalon-studio/gradle-plugin'
+  tags = ['katalon']
+}
+
 gradlePlugin {
     plugins {
-        buildtool {
-            id = 'katalon'
-            implementationClass = 'com.katalon.gradle.plugin.KatalonGradlePlugin'
+        katalon {
+          id = 'com.katalon.gradle.plugin.katalon'
+          displayName = 'Katalon Gradle Plugin'
+          description = 'Katalon Gradle Plugin'
+          implementationClass = 'com.katalon.gradle.plugin.KatalonGradlePlugin'
         }
     }
 }
 
-publishing {
-  repositories {
-    maven {
-      url "../consuming/maven-repo"
-    }
-  }
-}
 
 
