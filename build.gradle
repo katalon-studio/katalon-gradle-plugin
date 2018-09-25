@@ -29,6 +29,15 @@ pluginBundle {
   tags = ['katalon']
 }
 
+publishing {
+  publications {
+    maven(MavenPublication) {
+      artifactId 'katalon'
+      from components.java
+    }
+  }
+}
+
 gradlePlugin {
     plugins {
         katalon {
