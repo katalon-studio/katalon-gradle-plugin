@@ -8,7 +8,7 @@ pipeline {
                 }
             }
             steps {
-                sh './build.sh'
+                sh 'gradle -version'
             }
         }
     }
