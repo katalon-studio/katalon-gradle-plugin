@@ -28,13 +28,10 @@ pluginBundle {
   tags = ['katalon']
 }
 
-publishing {
-  publications {
-    maven(MavenPublication) {
-      artifactId 'katalon'
-      from components.java
+install {
+    repositories.mavenInstaller {
+        pom.artifactId = 'katalon'
     }
-  }
 }
 
 gradlePlugin {
