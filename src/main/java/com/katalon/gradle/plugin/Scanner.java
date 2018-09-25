@@ -1,4 +1,4 @@
-package kat.studio;
+package com.katalon.gradle.plugin;
 
 import java.io.IOException;
 import java.nio.file.Files;

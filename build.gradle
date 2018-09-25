@@ -4,7 +4,7 @@ plugins {
     id 'idea'
 }
 
-group = 'kat.studio.buildtool'
+group = 'com.katalon.gradle.plugin'
 version = '0.1'
 
 dependencies {
@@ -14,8 +14,8 @@ dependencies {
 gradlePlugin {
     plugins {
         buildtool {
-            id = 'kat.studio.buildtool'
-            implementationClass = 'kat.studio.KatPlugin'
+            id = 'com.katalon.gradle.plugin'
+            implementationClass = 'com.katalon.gradle.plugin.KatPlugin'
         }
     }
 }

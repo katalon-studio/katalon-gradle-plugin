@@ -1,6 +1,7 @@
-package kat.studio;
+package com.katalon.gradle.plugin;
 
-public class TestSuite {
+public class TestCase {
+
   private String name;
   private String path;
 

@@ -1,4 +1,4 @@
-package kat.studio;
+package com.katalon.gradle.plugin;
 
 import org.gradle.api.Plugin;
 import org.gradle.api.Project;
