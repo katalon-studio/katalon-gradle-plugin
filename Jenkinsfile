@@ -6,7 +6,11 @@ pipeline {
     }
     stages {           
         stage ("Build") {
-            when { branch not 'master' }
+            when { 
+                not { 
+                    branch 'master' 
+                }
+            }
             steps {
                 sh 'gradle build'
             }
