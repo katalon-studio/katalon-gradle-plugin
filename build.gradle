@@ -8,38 +8,29 @@ plugins {
 group = 'com.katalon.gradle.plugin'
 version = '0.0.1'
 
-dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
-
-task sourcesJar(type: Jar) {
-  classifier = 'sources'
-  from sourceSets.main.allJava
-}
-
-task javadocJar(type: Jar) {
-  classifier = 'javadoc'
-  from javadoc.destinationDir
-}
 
 pluginBundle {
   website = 'https://www.katalon.com/'
   vcsUrl = 'https://github.com/katalon-studio/gradle-plugin'
   tags = ['katalon']
+
+  plugins {
+    katalon {
+      website = 'https://www.katalon.com/'
+      vcsUrl = 'https://github.com/katalon-studio/gradle-plugin'
+      displayName = 'Katalon Gradle Plugin'
+      description = 'Katalon Gradle Plugin'
+    }
+  }
 }
 
-install {
-    repositories.mavenInstaller {
-        pom.artifactId = 'katalon'
-    }
-}
+
 
 gradlePlugin {
     plugins {
         katalon {
-          id = 'com.katalon.gradle.plugin.katalon'
+          id = 'com.katalon.gradle.plugin.gradle-plugin'
           displayName = 'Katalon Gradle Plugin'
-          description = 'Katalon Gradle Plugin'
           implementationClass = 'com.katalon.gradle.plugin.KatalonGradlePlugin'
         }
     }
