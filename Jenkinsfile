@@ -7,9 +7,6 @@ pipeline {
     stages {           
         stage ("Build") {
             when { branch not 'master' }
-            environment {
-                GRADLE_PORTAL = credentials('gradle-portal')
-            }
             steps {
                 sh 'gradle build'
             }
