@@ -1,12 +1,12 @@
 pipeline {
-    agent any
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+        }
+    }
     stages {
         stage ("Build") {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
-                }
-            }
+            when { branch 'master' }
             environment {
                 GRADLE_PORTAL = credentials('gradle-portal')
             }
