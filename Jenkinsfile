@@ -11,7 +11,7 @@ pipeline {
                 GRADLE_PORTAL = credentials('gradle-portal')
             }
             steps {
-                sh 'gradle publishPlugins -Pgradle.publish.key=$GRADLE_PORTAL_USR -Pgradle.publish.secret=$GRADLE_PORTAL_PSW'
+                sh 'gradle build
             }
         }
         
