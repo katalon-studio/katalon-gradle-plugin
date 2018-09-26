@@ -11,7 +11,7 @@ pipeline {
                 GRADLE_PORTAL = credentials('gradle-portal')
             }
             steps {
-                sh 'gradle build
+                sh 'gradle build'
             }
         }
         
