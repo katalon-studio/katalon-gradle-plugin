@@ -8,14 +8,9 @@ import java.util.List;
 
 public class ListTestCasesTask extends DefaultTask {
 
-  private Project project;
-
-  public void setProject(Project project) {
-    this.project = project;
-  }
-
   @TaskAction
   void scanTestCase() {
+    Project project = this.getProject();
     String rootPath = project.getRootDir().getAbsolutePath();
     Scanner scanner = new Scanner();
     try {

@@ -6,8 +6,15 @@ plugins {
 }
 
 group = 'com.katalon.gradle.plugin'
-version = '0.0.1'
+version = '0.0.2'
 
+publishing {
+  repositories {
+    maven {
+      url "../consuming/maven-repo"
+    }
+  }
+}
 
 pluginBundle {
   website = 'https://www.katalon.com/'
@@ -24,8 +31,6 @@ pluginBundle {
   }
 }
 
-
-
 gradlePlugin {
     plugins {
         katalon {
@@ -35,6 +40,5 @@ gradlePlugin {
         }
     }
 }
-
 
 
