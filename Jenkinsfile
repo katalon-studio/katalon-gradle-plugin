@@ -1,12 +1,23 @@
 pipeline {
-    agent any
-    stages {
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+        }
+    }
+    stages {           
         stage ("Build") {
-            agent {
-                dockerfile {
-                    filename 'Dockerfile'
+            when { 
+                not { 
+                    branch 'master' 
                 }
             }
+            steps {
+                sh 'gradle build'
+            }
+        }
+        
+        stage ("Publish") {
+            when { branch 'master' }
             environment {
                 GRADLE_PORTAL = credentials('gradle-portal')
             }
