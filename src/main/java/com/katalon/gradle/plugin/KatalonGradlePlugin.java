@@ -9,10 +9,10 @@ import org.gradle.api.tasks.Copy;
 public class KatalonGradlePlugin implements Plugin<Project> {
 
     public void apply(Project project) {
-        project.getTasks().create("listTestCases", ListTestCasesTask.class);
+        project.getTasks().create("katalonListTestCases", ListTestCasesTask.class);
 
-        project.getTasks().create("listTestSuites", ListTestSuitesTask.class);
+        project.getTasks().create("katalonListTestSuites", ListTestSuitesTask.class);
 
-        project.getTasks().create("copyDependencies", CopyDependencyTask.class);
+        project.getTasks().create("katalonCopyDependencies", CopyDependencyTask.class);
     }
 }
