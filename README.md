@@ -7,4 +7,4 @@ https://plugins.gradle.org/plugin/com.katalon.gradle-plugin
 Tasks List:  
 gradle katalonListTestCases  
 gradle katalonListTestSuites  
-gradle katalonListCopyDependencies  
+gradle katalonCopyDependencies  
