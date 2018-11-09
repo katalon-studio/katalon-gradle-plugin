@@ -35,7 +35,6 @@ gradlePlugin {
     plugins {
         katalon {
           id = 'com.katalon.gradle-plugin'
-          displayName = 'Katalon Gradle Plugin'
           implementationClass = 'com.katalon.gradle.plugin.KatalonGradlePlugin'
         }
     }

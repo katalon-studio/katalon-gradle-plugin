@@ -1,7 +1,8 @@
 pipeline {
     agent {
-        dockerfile {
-            filename 'Dockerfile'
+        docker {
+            image 'Dockerfile'
+            args '$PWD:/home/gradle/project -w /home/gradle/project'
         }
     }
     stages {           
@@ -12,17 +13,19 @@ pipeline {
                 }
             }
             steps {
-                sh 'gradle build'
+                sh 'gradle clean build'
             }
         }
-        
-        stage ("Publish") {
-            when { branch 'master' }
+
+        stage ("Build and publish") {
+            when {
+                branch 'master'
+            }
             environment {
                 GRADLE_PORTAL = credentials('gradle-portal')
             }
             steps {
-                sh 'gradle publishPlugins -Pgradle.publish.key=$GRADLE_PORTAL_USR -Pgradle.publish.secret=$GRADLE_PORTAL_PSW'
+                sh 'gradle clean build publishPlugins -Pgradle.publish.key=$GRADLE_PORTAL_USR -Pgradle.publish.secret=$GRADLE_PORTAL_PSW'
             }
         }
     }
