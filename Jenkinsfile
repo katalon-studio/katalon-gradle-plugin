@@ -2,7 +2,7 @@ pipeline {
     agent {
         docker {
             image 'gradle'
-            args '$PWD:/home/gradle/project -w /home/gradle/project'
+            args '-v $PWD:/home/gradle/project -w /home/gradle/project'
         }
     }
     stages {
