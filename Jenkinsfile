@@ -1,15 +1,15 @@
 pipeline {
     agent {
         docker {
-            image 'gradle:jdk8'
+            image 'gradle'
             args '$PWD:/home/gradle/project -w /home/gradle/project'
         }
     }
-    stages {           
+    stages {
         stage ("Build") {
-            when { 
-                not { 
-                    branch 'master' 
+            when {
+                not {
+                    branch 'master'
                 }
             }
             steps {
