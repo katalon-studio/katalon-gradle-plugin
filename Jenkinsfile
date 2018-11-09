@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'Dockerfile'
+            image 'gradle:jdk8'
             args '$PWD:/home/gradle/project -w /home/gradle/project'
         }
     }
