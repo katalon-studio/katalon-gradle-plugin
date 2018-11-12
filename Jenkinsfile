@@ -22,10 +22,10 @@ pipeline {
                 branch 'master'
             }
             environment {
-                GRADLE_PORTAL = credentials('gradle-portal')
+                GRADLE_PUBLISH = credentials('gradle-publish')
             }
             steps {
-                sh 'gradle clean build publishPlugins -Pgradle.publish.key=$GRADLE_PORTAL_USR -Pgradle.publish.secret=$GRADLE_PORTAL_PSW'
+                sh 'gradle clean build publishPlugins -Pgradle.publish.key=$GRADLE_PUBLISH_USR -Pgradle.publish.secret=$GRADLE_PUBLISH_PSW'
             }
         }
     }
