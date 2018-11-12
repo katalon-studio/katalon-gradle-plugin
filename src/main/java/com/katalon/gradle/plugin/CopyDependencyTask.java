@@ -12,7 +12,7 @@ public class CopyDependencyTask extends DefaultTask {
     Project project = this.getProject();
     project.copy(copySpec -> copySpec
       .from(project.getConfigurations().getByName("compile"))
-      .into("/Drivers")
+      .into("Drivers")
       .rename(s -> "katalon_generated_" + s));
   }
 }
