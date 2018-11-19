@@ -1,6 +1,6 @@
 ## Katalon Studio's Gradle Plugin
 
-This Gradle plugin helps simplify some tasks in Katalon Studio. It is published at https://plugins.gradle.org/plugin/com.katalon.gradle-plugin.
+This Gradle plugin helps simplify/automate some tasks in Katalon Studio. It is published at https://plugins.gradle.org/plugin/com.katalon.gradle-plugin.
 
 ## Gradle Tasks
 
@@ -13,7 +13,7 @@ This Gradle plugin helps simplify some tasks in Katalon Studio. It is published 
 
 ### Install Gradle
 
-Please follow this [guide](https://gradle.org/install/) to install gradle on your machine.
+Please follow this [guide](https://gradle.org/install/) to install Gradle on your machine.
 
 ### Add `build.gradle` file
 
