@@ -30,20 +30,15 @@ repositories {
 }
 
 dependencies {
-
-	// sample dependencies
-
-	// rest-assured
-	compile 'io.rest-assured:rest-assured:3.2.0'
-
-	// JsonPath
-	compile 'io.rest-assured:json-path:3.2.0'
-	
-	// XmlPath
-	compile 'io.rest-assured:json-path:3.2.0'
-
-	// JSON Schema Validation
-	compile 'io.rest-assured:json-schema-validator:3.2.0'
+  // sample dependencies
+  // rest-assured
+  compile 'io.rest-assured:rest-assured:3.2.0'
+  // JsonPath
+  compile 'io.rest-assured:json-path:3.2.0'
+  // XmlPath
+  compile 'io.rest-assured:json-path:3.2.0'
+  // JSON Schema Validation
+  compile 'io.rest-assured:json-schema-validator:3.2.0'
 }
 
 ```
