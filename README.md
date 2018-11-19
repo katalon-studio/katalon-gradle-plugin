@@ -51,4 +51,4 @@ Execute the following command:
 gradle katalonCopyDependencies 
 ```
 	
-> **Please reload your Katalon Studio project once finished running Gradle jobs.**
+> **Please close and re-open your Katalon Studio project after the process has been completed.**
