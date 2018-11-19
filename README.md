@@ -22,7 +22,7 @@ Add a `build.gradle` file inside Katalon Studio project contains the below code.
 ```gradle
 plugins {
   id 'java'
-  id "com.katalon.gradle-plugin" version "0.0.3"
+  id "com.katalon.gradle-plugin" version "0.0.4"
 }
 
 repositories {
@@ -45,10 +45,8 @@ dependencies {
 
 ### Download the dependencies
 
-Execute the following command:
+> **Due to the way Java loading libraries, please close all Katalon Studio applications before execute the following command, and re-open it after the command has been completed.**
 
 ```
 gradle katalonCopyDependencies 
 ```
-	
-> **Please close and re-open your Katalon Studio project after the process has been completed.**
