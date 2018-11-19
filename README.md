@@ -1,15 +1,23 @@
-> Please reload your Katalon Studio project once finished running Gradle jobs.
+## Katalon Studio's Gradle Plugin
 
-# gradle-plugin
+This Gradle plugin helps simplify some tasks in Katalon Studio. It is published at https://plugins.gradle.org/plugin/com.katalon.gradle-plugin.
 
-Katalon Gradle repository: https://plugins.gradle.org/plugin/com.katalon.gradle-plugin  
+## Gradle Tasks
 
-# Install gradle
+* `katalonCopyDependencies`
+* `katalonListTestCases`
+* `katalonListTestSuites`
+
+
+## Tutorial: Automatically download dependencies for Katalon Studio projects
+
+### Install Gradle
+
 Please follow this [guide](https://gradle.org/install/) to install gradle on your machine.
 
-# Create a local gradle properties file
+### Add `build.gradle` file
 
-Create a local gradle file named "build.gradle" inside Katalon Studio project contains the below code. Dependencies can be changed or modified based on your libraries prerferences. 
+Add a `build.gradle` file inside Katalon Studio project contains the below code. Dependencies can be changed or modified based on your libraries prerferences. 
 
 ```gradle
 plugins {
@@ -22,29 +30,30 @@ repositories {
 }
 
 dependencies {
-	//rest-assured
+
+	// sample dependencies
+
+	// rest-assured
 	compile 'io.rest-assured:rest-assured:3.2.0'
 
-	//JsonPath
+	// JsonPath
 	compile 'io.rest-assured:json-path:3.2.0'
 	
-	//XmlPath
+	// XmlPath
 	compile 'io.rest-assured:json-path:3.2.0'
 
-	//JSON Schema Validation
+	// JSON Schema Validation
 	compile 'io.rest-assured:json-schema-validator:3.2.0'
 }
 
 ```
 
-# Syntax for Katalon Studio gradle plugin
+### Download the dependencies
 
-- To install Katalon Dependencies
+Execute the following command:
 
-	gradle katalonCopyDependencies 
-
-- Other Syntax
-
-	gradle katalonListTestCases  
-	gradle katalonListTestSuites  
- 
+```
+gradle katalonCopyDependencies 
+```
+	
+> Please reload your Katalon Studio project once finished running Gradle jobs. 
