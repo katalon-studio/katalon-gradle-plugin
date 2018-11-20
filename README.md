@@ -1,4 +1,4 @@
-## Katalon Studio's Gradle Plugin
+# Katalon Studio's Gradle Plugin
 
 This Gradle plugin helps simplify/automate some tasks in Katalon Studio. It is published at https://plugins.gradle.org/plugin/com.katalon.gradle-plugin.
 
