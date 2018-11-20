@@ -8,6 +8,9 @@ This Gradle plugin helps simplify/automate some tasks in Katalon Studio. It is p
 * `katalonListTestCases`
 * `katalonListTestSuites`
 
+## Sample
+
+Please see https://github.com/katalon-studio-samples/framework-integration.
 
 ## Tutorial: Automatically download dependencies for Katalon Studio projects
 
