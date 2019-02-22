@@ -13,6 +13,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Map;
 
+import static com.katalon.gradle.plugin.KatalonGradlePlugin.GROOVY_DEPENDENCY;
+import static com.katalon.gradle.plugin.KatalonGradlePlugin.GROOVY_VERSION;
+
 public class AddCompileOnlyDependencyTask extends DefaultTask {
     private Project project;
 
@@ -22,6 +25,9 @@ public class AddCompileOnlyDependencyTask extends DefaultTask {
                 .forEach(javaCompile -> javaCompile.dependsOn(this));
         project.getTasks().withType(GroovyCompile.class)
                 .forEach(groovyCompile -> groovyCompile.dependsOn(this));
+
+        String groovyDependency = GROOVY_DEPENDENCY + (GROOVY_VERSION.isEmpty() ? "" : (":" + GROOVY_VERSION));
+        this.project.getDependencies().add("shadow", groovyDependency);
     }
 
     @TaskAction

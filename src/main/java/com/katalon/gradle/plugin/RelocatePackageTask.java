@@ -34,8 +34,12 @@ public class RelocatePackageTask extends ConfigureShadowRelocation {
 
     @TaskAction
     public void configureRelocation() {
-        this.setPackagePrefix(getExtension().getDependencyPrefix());
-        super.configureRelocation();
+        String prefix = getExtension().getDependencyPrefix();
+        if (!prefix.isEmpty()) {
+            this.setPrefix(prefix);
+            super.configureRelocation();
+        }
+        minimizePackage();
     }
 
     private void minimizePackage() {
