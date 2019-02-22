@@ -10,6 +10,7 @@ import org.gradle.api.tasks.compile.GroovyCompile;
 import org.gradle.api.tasks.compile.JavaCompile;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Map;
 
 public class AddCompileOnlyDependencyTask extends DefaultTask {
@@ -25,8 +26,8 @@ public class AddCompileOnlyDependencyTask extends DefaultTask {
 
     @TaskAction
     public void addDependency() {
-        /**
-         * Parse Eclipse .classpath and add dependency to build.gradle
+        /*
+          Parse Eclipse .classpath and add dependency to build.gradle
          */
         try {
             XmlParser parser = new XmlParser();
@@ -51,6 +52,8 @@ public class AddCompileOnlyDependencyTask extends DefaultTask {
                 Object filePath = attributes.get("path");
                 this.project.getDependencies().add("compileOnly", this.project.files(filePath));
             });
+        } catch (FileNotFoundException e) {
+            System.out.println(".classpath Not Found. No dependency added!");
         } catch (Exception e) {
             e.printStackTrace();
         }

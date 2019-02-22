@@ -20,6 +20,9 @@ public class KatalonGradlePlugin implements Plugin<Project> {
     public void apply(Project project) {
         applyPlugins(project);
 
+        KatalonGradlePluginExtension extension = project.getExtensions()
+                .create("katalon", KatalonGradlePluginExtension.class);
+
         project.getTasks().create("katalonListTestCases", ListTestCasesTask.class);
 
         project.getTasks().create("katalonListTestSuites", ListTestSuitesTask.class);
@@ -35,7 +38,7 @@ public class KatalonGradlePlugin implements Plugin<Project> {
         Task relocationTask = project.getTasks().create(
                 "katalonRelocate",
                 RelocatePackageTask.class,
-                task -> task.setPackagePrefix(PACKAGE_PREFIX));
+                task -> task.setExtension(extension));
 
         bundleTask.dependsOn(shadowTask);
         shadowTask.dependsOn(relocationTask);
