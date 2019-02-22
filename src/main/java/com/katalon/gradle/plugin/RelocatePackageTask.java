@@ -3,9 +3,11 @@ package com.katalon.gradle.plugin;
 import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation;
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar;
 import org.gradle.api.Project;
+import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.TaskAction;
 
 public class RelocatePackageTask extends ConfigureShadowRelocation {
+    @Input
     private KatalonGradlePluginExtension extension;
     private ShadowJar shadowTask;
 
@@ -32,9 +34,8 @@ public class RelocatePackageTask extends ConfigureShadowRelocation {
 
     @TaskAction
     public void configureRelocation() {
-        this.setPrefix(getExtension().getDependencyPrefix());
+        this.setPackagePrefix(getExtension().getDependencyPrefix());
         super.configureRelocation();
-        this.minimizePackage();
     }
 
     private void minimizePackage() {

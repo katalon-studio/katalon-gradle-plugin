@@ -1,5 +1,6 @@
 package com.katalon.gradle.plugin;
 
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar;
 import com.katalon.gradle.plugin.list.ListTestCasesTask;
 import com.katalon.gradle.plugin.list.ListTestSuitesTask;
 import org.gradle.api.Plugin;
@@ -9,7 +10,6 @@ import org.gradle.api.plugins.GroovyPlugin;
 import org.gradle.api.plugins.JavaPlugin;
 
 public class KatalonGradlePlugin implements Plugin<Project> {
-    private static final String PACKAGE_PREFIX = "myapp";
 
     private void applyPlugins(Project project) {
         project.getPlugins().apply(JavaPlugin.class);
@@ -31,7 +31,7 @@ public class KatalonGradlePlugin implements Plugin<Project> {
 
         project.getTasks().create("katalonConfigurations", AddCompileOnlyDependencyTask.class);
 
-        Task shadowTask = project.getTasks().getByName("shadowJar");
+        ShadowJar shadowTask = (ShadowJar) project.getTasks().getByName("shadowJar");
 
         Task bundleTask = project.getTasks().create("katalonBundle");
 
@@ -42,5 +42,9 @@ public class KatalonGradlePlugin implements Plugin<Project> {
 
         bundleTask.dependsOn(shadowTask);
         shadowTask.dependsOn(relocationTask);
+
+        // Exclude generated source by Katalon Studio from being bundled
+        shadowTask.exclude("internal");
+        shadowTask.exclude("CustomKeywords.class");
     }
 }

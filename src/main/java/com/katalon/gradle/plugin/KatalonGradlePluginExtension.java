@@ -6,6 +6,7 @@ public class KatalonGradlePluginExtension {
 
     public KatalonGradlePluginExtension() {
         this.dependencyPrefix = "katalon";
+        this.minimize = true;
     }
 
     public String getDependencyPrefix() {
