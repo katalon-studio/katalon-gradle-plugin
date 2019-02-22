@@ -29,18 +29,18 @@ public class KatalonGradlePlugin implements Plugin<Project> {
 
         project.getTasks().create("katalonCopyDependencies", CopyDependencyTask.class);
 
-        project.getTasks().create("katalonConfigurations", AddCompileOnlyDependencyTask.class);
+        project.getTasks().create("katalonPluginConfigure", AddCompileOnlyDependencyTask.class);
 
         ShadowJar shadowTask = (ShadowJar) project.getTasks().getByName("shadowJar");
 
-        Task bundleTask = project.getTasks().create("katalonBundle");
+        Task packageTask = project.getTasks().create("katalonPluginPackage");
 
         Task relocationTask = project.getTasks().create(
-                "katalonRelocate",
+                "katalonPluginShade",
                 RelocatePackageTask.class,
                 task -> task.setExtension(extension));
 
-        bundleTask.dependsOn(shadowTask);
+        packageTask.dependsOn(shadowTask);
         shadowTask.dependsOn(relocationTask);
 
         // Exclude generated source by Katalon Studio from being bundled
