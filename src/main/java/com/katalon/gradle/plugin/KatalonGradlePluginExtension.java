@@ -8,9 +8,9 @@ public class KatalonGradlePluginExtension {
     private boolean minimize;
 
     public KatalonGradlePluginExtension() {
-        this.dependencyPrefix = "katalon";
+        this.dependencyPrefix = "";
         this.metadataDir = RESOURCE_DIR;
-        this.minimize = true;
+        this.minimize = false;
     }
 
     public String getDependencyPrefix() {
