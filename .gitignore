@@ -3,3 +3,5 @@
 /build
 /buildtool.iml
 /out
+/buildSrc/.gradle
+/buildSrc/build
