@@ -20,7 +20,7 @@ Please follow this [guide](https://gradle.org/install/) to install Gradle on you
 
 ### Add `build.gradle` file
 
-Add a `build.gradle` file inside Katalon Studio project contains the below code. Dependencies can be changed or modified based on your libraries prerferences. 
+Add a `build.gradle` file inside Katalon Studio project contains the below code. Dependencies can be changed or modified based on your libraries prerferences.
 
 ```gradle
 plugins {
@@ -51,5 +51,11 @@ dependencies {
 > **Due to the way Java loading libraries, please close all Katalon Studio applications before execute the following command, and re-open it after the command has been completed.**
 
 ```
-gradle katalonCopyDependencies 
+gradle katalonCopyDependencies
 ```
+
+## License
+
+Copyright (c) Katalon LLC. All rights reserved.
+
+Licensed under the LICENSE AGREEMENT FOR KATALON AUTOMATION FRAMEWORK.

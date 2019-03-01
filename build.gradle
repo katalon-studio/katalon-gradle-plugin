@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.katalon.gradle.plugin'
-version = '0.0.4'
+version = '0.0.5'
 
 publishing {
   repositories {
@@ -38,4 +38,12 @@ gradlePlugin {
           implementationClass = 'com.katalon.gradle.plugin.KatalonGradlePlugin'
         }
     }
+}
+
+repositories {
+  maven { url 'https://plugins.gradle.org/m2/' }
+}
+
+dependencies {
+  compile 'com.github.jengelman.gradle.plugins:shadow:4.0.4'
 }
