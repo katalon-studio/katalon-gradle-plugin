@@ -22,7 +22,7 @@ public class CopyDependencyTask extends DefaultTask {
     project.copy(copySpec ->
         copySpec
             .from(project.getConfigurations().getByName("compile"))
-            .into("/Drivers")
+            .into("Drivers")
             .rename(s -> LIBRARY_PREFIX + s));
   }
 }
