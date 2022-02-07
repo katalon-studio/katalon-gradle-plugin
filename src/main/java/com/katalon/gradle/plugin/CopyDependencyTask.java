@@ -19,9 +19,10 @@ public class CopyDependencyTask extends DefaultTask {
             )
         )
     );
+
     project.copy(copySpec ->
         copySpec
-            .from(project.getConfigurations().getByName("compile"))
+            .from(project.getConfigurations().getByName("runtimeClasspath"))
             .into("Drivers")
             .rename(s -> LIBRARY_PREFIX + s));
   }
