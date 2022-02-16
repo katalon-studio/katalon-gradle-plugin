@@ -1,0 +1,14 @@
+name: Gradle Build
+
+on:
+  push:
+    branches-ignore: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Build Only
+        run:  gradle clean build
