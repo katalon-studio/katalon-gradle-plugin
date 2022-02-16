@@ -1,0 +1,16 @@
+name: Gradle Build and Publish
+
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    # environment: gradle-publish
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build and Publish
+        run: |
+          gradle clean build
+          gradle publishPlugins -Pgradle.publish.key=${{ secrets.GRADLE_PUBLISH_USR }} -Pgradle.publish.secret=${{ secrets.GRADLE_PUBLISH_PSW }}
