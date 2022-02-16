@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.katalon.gradle.plugin'
-version = '0.0.7'
+version = '0.1.0'
 
 publishing {
   repositories {
@@ -45,5 +45,5 @@ repositories {
 }
 
 dependencies {
-  compile 'com.github.jengelman.gradle.plugins:shadow:4.0.4'
+  implementation 'gradle.plugin.com.github.johnrengelman:shadow:7.1.2'
 }
