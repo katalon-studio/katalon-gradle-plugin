@@ -10,5 +10,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+#       For specific gradle version
+#       - uses: gradle/gradle-build-action@v2
+#         with:
+#           gradle-version: 7.3.3
       - name: Build Only
         run: gradle clean build
