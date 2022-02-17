@@ -7,9 +7,13 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # environment: gradle-publish
+#     environment: gradle-publish
     steps:
       - uses: actions/checkout@v2
+#       For specific gradle version
+#       - uses: gradle/gradle-build-action@v2
+#         with:
+#           gradle-version: 7.3.3
       - name: Build and Publish
         run: |
           gradle clean build
