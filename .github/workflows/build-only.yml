@@ -14,5 +14,10 @@ jobs:
 #       - uses: gradle/gradle-build-action@v2
 #         with:
 #           gradle-version: 7.3.3
+      - name: Setup JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '8'
       - name: Build Only
         run: gradle clean build
