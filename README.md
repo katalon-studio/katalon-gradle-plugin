@@ -24,8 +24,8 @@ Add a `build.gradle` file inside Katalon Studio project contains the below code.
 
 ```gradle
 plugins {
-  id 'java'
-  id "com.katalon.gradle-plugin" version "0.0.7"
+  id 'java-library'
+  id "com.katalon.gradle-plugin" version "0.1.1"
 }
 
 repositories {
@@ -35,13 +35,13 @@ repositories {
 dependencies {
   // sample dependencies
   // rest-assured
-  compile 'io.rest-assured:rest-assured:3.2.0'
+  implementation 'io.rest-assured:rest-assured:3.2.0'
   // JsonPath
-  compile 'io.rest-assured:json-path:3.2.0'
+  implementation 'io.rest-assured:json-path:3.2.0'
   // XmlPath
-  compile 'io.rest-assured:json-path:3.2.0'
+  implementation 'io.rest-assured:json-path:3.2.0'
   // JSON Schema Validation
-  compile 'io.rest-assured:json-schema-validator:3.2.0'
+  implementation 'io.rest-assured:json-schema-validator:3.2.0'
 }
 
 ```
