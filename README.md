@@ -8,7 +8,7 @@ Run `gradle build`
 * **Test** 
 <br>Suggestion plugin: [katalon-studio-zip-keywords-plugin](https://github.com/katalon-studio/)
 <br>Remove line `'com.katalon.gradle-plugin' version '<version>'`
-<br>Adding this script to gradle.build in the tested plugin.
+<br>Adding this script to the build.gradle file in the tested plugin.
 ```
 buildscript{
     dependencies{
