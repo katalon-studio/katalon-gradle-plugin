@@ -2,6 +2,25 @@
 
 This Gradle plugin helps simplify/automate some tasks in Katalon Studio. It is published at https://plugins.gradle.org/plugin/com.katalon.gradle-plugin.
 
+## How to build and test
+* **Build**
+Run `gradle build`
+* **Test** 
+<br>Suggestion plugin: [katalon-studio-zip-keywords-plugin](https://github.com/katalon-studio/)
+<br>Remove line `'com.katalon.gradle-plugin' version '0.1.1'`
+<br>Adding this script to gradle.build in the tested plugin.
+```
+buildscript{
+    dependencies{
+        classpath files('katalon-gradle-plugin-0.1.2.jar')
+    }
+}
+.....
+apply plugin: com.katalon.gradle.plugin.KatalonGradlePlugin
+``` 
+
+
+
 ## Gradle Tasks
 
 * `katalonCopyDependencies`
