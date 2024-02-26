@@ -6,7 +6,7 @@ This Gradle plugin helps simplify/automate some tasks in Katalon Studio. It is p
 * **Build**
 Run `gradle build`
 * **Test** 
-<br>Suggestion plugin: [katalon-studio-zip-keywords-plugin](https://github.com/katalon-studio/)
+<br>Suggestion plugin: [katalon-studio-zip-keywords-plugin](https://github.com/katalon-studio/katalon-studio-zip-keywords-plugin)
 <br>Remove line `'com.katalon.gradle-plugin' version '<version>'`
 <br>Adding this script to the build.gradle file in the tested plugin.
 ```
