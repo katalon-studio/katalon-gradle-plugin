@@ -13,7 +13,7 @@ public class KatalonGradlePlugin implements Plugin<Project> {
     static final String RESOURCE_DIR = "Keywords";
     static final String METADATA_FILE = "katalon-plugin.json";
     static final String GROOVY_DEPENDENCY = "org.codehaus.groovy:groovy-all";
-    static final String GROOVY_VERSION = "2.4.7";
+    static final String GROOVY_VERSION = "3.0.17";
 
     private void applyPlugins(Project project) {
         project.getPlugins().apply(JavaPlugin.class);
