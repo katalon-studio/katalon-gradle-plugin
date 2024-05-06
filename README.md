@@ -44,7 +44,7 @@ Add a `build.gradle` file inside Katalon Studio project contains the below code.
 ```gradle
 plugins {
   id 'java-library'
-  id "com.katalon.gradle-plugin" version "0.1.1"
+  id "com.katalon.gradle-plugin" version "0.1.2"
 }
 
 repositories {
