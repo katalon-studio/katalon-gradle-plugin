@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 #     environment: gradle-publish
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
 #       For specific gradle version
 #       - uses: gradle/gradle-build-action@v2
 #         with:
