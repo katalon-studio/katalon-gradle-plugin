@@ -1,22 +1,21 @@
 package com.katalon.gradle.plugin;
 
-import com.github.jengelman.gradle.plugins.shadow.tasks.ConfigureShadowRelocation;
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar;
+import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.TaskAction;
+import org.gradle.work.DisableCachingByDefault;
 
-public class RelocatePackageTask extends ConfigureShadowRelocation {
+@DisableCachingByDefault(because = "Mutates the shadowJar task's configuration as a side effect; has no cacheable outputs")
+public class RelocatePackageTask extends DefaultTask {
     @Input
     private KatalonGradlePluginExtension extension;
-    private ShadowJar shadowTask;
+    private final ShadowJar shadowTask;
 
     public RelocatePackageTask() {
-        super();
-
         Project project = this.getProject();
         this.shadowTask = (ShadowJar) project.getTasks().getByName("shadowJar");
-        this.setTarget(this.shadowTask);
     }
 
     public KatalonGradlePluginExtension getExtension() {
@@ -27,17 +26,12 @@ public class RelocatePackageTask extends ConfigureShadowRelocation {
         this.extension = extension;
     }
 
-    public void setPackagePrefix(String prefix) {
-        this.setPrefix(prefix);
-        this.minimizePackage();
-    }
-
     @TaskAction
     public void configureRelocation() {
         String prefix = getExtension().getDependencyPrefix();
         if (!prefix.isEmpty()) {
-            this.setPrefix(prefix);
-            super.configureRelocation();
+            shadowTask.getEnableAutoRelocation().set(true);
+            shadowTask.getRelocationPrefix().set(prefix);
         }
         minimizePackage();
     }

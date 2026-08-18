@@ -18,7 +18,7 @@ public class KatalonGradlePlugin implements Plugin<Project> {
     private void applyPlugins(Project project) {
         project.getPlugins().apply(JavaPlugin.class);
         project.getPlugins().apply(GroovyPlugin.class);
-        project.getPlugins().apply("com.github.johnrengelman.shadow");
+        project.getPlugins().apply("com.gradleup.shadow");
     }
 
     public void apply(Project project) {

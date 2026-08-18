@@ -3,9 +3,11 @@ package com.katalon.gradle.plugin.list;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
 import org.gradle.api.tasks.TaskAction;
+import org.gradle.work.DisableCachingByDefault;
 
 import java.util.List;
 
+@DisableCachingByDefault(because = "Only prints results to the console")
 public class ListTestCasesTask extends DefaultTask {
 
   @TaskAction

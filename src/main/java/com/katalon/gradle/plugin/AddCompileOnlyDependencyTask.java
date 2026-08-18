@@ -2,12 +2,13 @@ package com.katalon.gradle.plugin;
 
 import groovy.util.Node;
 import groovy.util.NodeList;
-import groovy.util.XmlParser;
+import groovy.xml.XmlParser;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
 import org.gradle.api.tasks.TaskAction;
 import org.gradle.api.tasks.compile.GroovyCompile;
 import org.gradle.api.tasks.compile.JavaCompile;
+import org.gradle.work.DisableCachingByDefault;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -16,6 +17,7 @@ import java.util.Map;
 import static com.katalon.gradle.plugin.KatalonGradlePlugin.GROOVY_DEPENDENCY;
 import static com.katalon.gradle.plugin.KatalonGradlePlugin.GROOVY_VERSION;
 
+@DisableCachingByDefault(because = "Adds dependencies as a side effect based on an untracked .classpath file")
 public class AddCompileOnlyDependencyTask extends DefaultTask {
     private Project project;
 

@@ -13,7 +13,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'gradle clean build'
+                sh './gradlew clean build'
             }
         }
 
@@ -25,7 +25,7 @@ pipeline {
                 GRADLE_PUBLISH = credentials('gradle-publish')
             }
             steps {
-                sh 'gradle clean build publishPlugins -Pgradle.publish.key=$GRADLE_PUBLISH_USR -Pgradle.publish.secret=$GRADLE_PUBLISH_PSW'
+                sh './gradlew clean build publishPlugins -Pgradle.publish.key=$GRADLE_PUBLISH_USR -Pgradle.publish.secret=$GRADLE_PUBLISH_PSW'
             }
         }
     }

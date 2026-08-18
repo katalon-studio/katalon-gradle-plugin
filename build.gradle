@@ -2,48 +2,45 @@ plugins {
   id 'java-gradle-plugin'
   id 'maven-publish'
   id 'idea'
-  id "com.gradle.plugin-publish" version "0.20.0"
+  id "com.gradle.plugin-publish" version "2.1.1"
 }
 
 group = 'com.katalon.gradle.plugin'
 version = '0.1.2'
 
+java {
+  sourceCompatibility = JavaVersion.VERSION_17
+  targetCompatibility = JavaVersion.VERSION_17
+}
+
 publishing {
   repositories {
     maven {
-      url "../consuming/maven-repo"
-    }
-  }
-}
-
-pluginBundle {
-  website = 'https://www.katalon.com/'
-  vcsUrl = 'https://github.com/katalon-studio/gradle-plugin'
-  tags = ['katalon']
-
-  plugins {
-    katalon {
-      website = 'https://www.katalon.com/'
-      vcsUrl = 'https://github.com/katalon-studio/gradle-plugin'
-      displayName = 'Katalon Gradle Plugin'
-      description = 'Katalon Gradle Plugin'
+      url = "../consuming/maven-repo"
     }
   }
 }
 
 gradlePlugin {
-    plugins {
-        katalon {
-          id = 'com.katalon.gradle-plugin'
-          implementationClass = 'com.katalon.gradle.plugin.KatalonGradlePlugin'
-        }
+  website = 'https://www.katalon.com/'
+  vcsUrl = 'https://github.com/katalon-studio/gradle-plugin'
+
+  plugins {
+    katalon {
+      id = 'com.katalon.gradle-plugin'
+      displayName = 'Katalon Gradle Plugin'
+      description = 'Katalon Gradle Plugin'
+      tags.set(['katalon'])
+      implementationClass = 'com.katalon.gradle.plugin.KatalonGradlePlugin'
     }
+  }
 }
 
 repositories {
-  maven { url 'https://plugins.gradle.org/m2/' }
+  mavenCentral()
+  maven { url = 'https://plugins.gradle.org/m2/' }
 }
 
 dependencies {
-  implementation 'gradle.plugin.com.github.johnrengelman:shadow:7.1.2'
+  implementation 'com.gradleup.shadow:shadow-gradle-plugin:9.6.1'
 }

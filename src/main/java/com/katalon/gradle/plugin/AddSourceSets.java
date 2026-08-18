@@ -3,17 +3,19 @@ package com.katalon.gradle.plugin;
 import org.gradle.api.DefaultTask;
 import org.gradle.api.Project;
 import org.gradle.api.file.SourceDirectorySet;
-import org.gradle.api.plugins.JavaPluginConvention;
 import org.gradle.api.tasks.Input;
 import org.gradle.api.tasks.SourceSet;
+import org.gradle.api.tasks.SourceSetContainer;
 import org.gradle.api.tasks.TaskAction;
 import org.gradle.api.tasks.compile.GroovyCompile;
 import org.gradle.api.tasks.compile.JavaCompile;
+import org.gradle.work.DisableCachingByDefault;
 
 import java.util.ArrayList;
 
 import static com.katalon.gradle.plugin.KatalonGradlePlugin.METADATA_FILE;
 
+@DisableCachingByDefault(because = "Configures source sets as a side effect; has no cacheable outputs")
 public class AddSourceSets extends DefaultTask {
     @Input
     private KatalonGradlePluginExtension extension;
@@ -29,8 +31,8 @@ public class AddSourceSets extends DefaultTask {
 
     @TaskAction
     public void addDependency() {
-        JavaPluginConvention javaPluginConvention = project.getConvention().getPlugin(JavaPluginConvention.class);
-        SourceSet mainSourceSet = javaPluginConvention.getSourceSets().getByName(SourceSet.MAIN_SOURCE_SET_NAME);
+        SourceSetContainer sourceSets = project.getExtensions().getByType(SourceSetContainer.class);
+        SourceSet mainSourceSet = sourceSets.getByName(SourceSet.MAIN_SOURCE_SET_NAME);
         SourceDirectorySet resourceDirectorySet = mainSourceSet.getResources();
 
 //        Set directory where resources reside
