@@ -31,7 +31,8 @@ public class KatalonGradlePlugin implements Plugin<Project> {
 
         project.getTasks().create("katalonListTestSuites", ListTestSuitesTask.class);
 
-        project.getTasks().create("katalonCopyDependencies", CopyDependencyTask.class);
+        project.getTasks().create("katalonCopyDependencies", CopyDependencyTask.class,
+                task -> task.getRuntimeClasspath().from(project.getConfigurations().getByName("runtimeClasspath")));
 
         project.getTasks().create("katalonPluginAddDependency", AddCompileOnlyDependencyTask.class);
 
