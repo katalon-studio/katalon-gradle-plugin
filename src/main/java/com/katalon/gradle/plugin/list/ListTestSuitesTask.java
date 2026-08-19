@@ -10,23 +10,21 @@ import java.util.List;
 @DisableCachingByDefault(because = "Only prints results to the console")
 public class ListTestSuitesTask extends DefaultTask {
 
-  private final File rootDir;
+    private final File rootDir;
 
-  public ListTestSuitesTask() {
-    this.rootDir = getProject().getRootDir();
-  }
-
-  @TaskAction
-  void scanTestSuites() {
-    String rootPath = rootDir.getAbsolutePath();
-    Scanner scanner = new Scanner();
-    try {
-      List<TestSuite> testSuites = scanner.scanTestSuites(rootPath);
-      testSuites.forEach(suite -> {
-        System.out.println(suite.getPath());
-      });
-    } catch (Exception ex) {
-      System.out.println(ex);
+    public ListTestSuitesTask() {
+        this.rootDir = getProject().getRootDir();
     }
-  }
+
+    @TaskAction
+    void scanTestSuites() {
+        String rootPath = rootDir.getAbsolutePath();
+        Scanner scanner = new Scanner();
+        try {
+            List<TestSuite> testSuites = scanner.scanTestSuites(rootPath);
+            testSuites.forEach(suite -> System.out.println(suite.getPath()));
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
 }
