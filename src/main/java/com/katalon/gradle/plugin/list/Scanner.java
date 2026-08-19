@@ -13,28 +13,24 @@ public class Scanner {
 
   public List<TestCase> scanTestCases(String root) throws IOException {
     Path rootPath = Paths.get(root);
-    List<TestCase> testCases = scan(root, "Test Cases", ".tc", path -> {
+    return scan(root, "Test Cases", ".tc", path -> {
       Path fileName = path.getFileName();
       TestCase tc = new TestCase();
       tc.setName(fileName.toString());
       tc.setPath(rootPath.relativize(path).toString());
       return tc;
     });
-
-    return testCases;
   }
 
   public List<TestSuite> scanTestSuites(String root) throws IOException {
     Path rootPath = Paths.get(root);
-    List<TestSuite> testSuites = scan(root, "Test Suites", ".ts", path -> {
+    return scan(root, "Test Suites", ".ts", path -> {
       Path fileName = path.getFileName();
       TestSuite tc = new TestSuite();
       tc.setName(fileName.toString());
       tc.setPath(rootPath.relativize(path).toString());
       return tc;
     });
-
-    return testSuites;
   }
 
   private <T> List<T> scan(String root, String subPath, String suffix, Function<? super Path, T> mapping) throws IOException {
